@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "medico": { "nome": "Afonso Silva" },
+      "paciente": {
+        "nome": "Gustavo Ferreira",
+        "dataNascimento": "2023-08-21"
+      },
+      "dataCriacao": "2024-09-20T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "medico": { "nome": "Fernando Santos" },
+      "paciente": {
+        "nome": "Jurandir Oliveira",
+        "dataNascimento": "1999-08-21"
+      },
+      "dataCriacao": "2024-09-20T12:00:00Z"
+    },
+    {
+      "id": 3,
+      "medico": { "nome": "Afonso Silva" },
+      "paciente": {
+        "nome": "Maria Souza",
+        "dataNascimento": "1987-04-10"
+      },
+      "dataCriacao": "2024-09-21T10:00:00Z"
+    },
+    {
+      "id": 4,
+      "medico": { "nome": "Marcela Souza" },
+      "paciente": {
+        "nome": "Felipe Araujo",
+        "dataNascimento": "2023-08-21"
+      },
+      "dataCriacao": "2024-08-20T12:00:00Z"
+    },
+    {
+      "id": 5,
+      "medico": { "nome": "Fernando Santos" },
+      "paciente": {
+        "nome": "Antônia Fernandes",
+        "dataNascimento": "1999-08-21"
+      },
+      "dataCriacao": "2024-10-20T12:00:00Z"
+    },
+    {
+      "id": 6,
+      "medico": { "nome": "Marcela Souza" },
+      "paciente": {
+        "nome": "Daniela Macedo",
+        "dataNascimento": "1987-04-10"
+      },
+      "dataCriacao": "2024-09-21T10:00:00Z"
+    }
+  ]
+}
