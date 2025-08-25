@@ -9,7 +9,7 @@
                     <input 
                         style="width: 600px;"
                         class="form-control" 
-                        placeholder="Pesquise pelo nome do paciente..."
+                        placeholder="Pesquise pelo paciente ou pelo médico responsável..."
                         v-model="formData.search"
                         @blur="getData"
                     >
@@ -19,30 +19,48 @@
                 </div>
             </form>
         </div>
-        <div class="card-container" v-for="user in this.list_data" :key="user.id">
+        <div class="text-center" v-if="list_data.length <= 0 && !isLoading">
+            <br/>
+            <NoResult></NoResult>
+        </div>
+        <div class="text-center" v-if="list_data.length <= 0 && isLoading">
+            <br/>
+            <div class="spinner-grow secondary" role="status"></div>
+        </div>
+        <div class="card-container" v-for="data in this.list_data" :key="data.id">
            <div>
                 <div class="card-header">
-                    <h5>Consulta: {{ user.id }}</h5>
-                    <h6>Data de emissão: {{ formatDate(user.dataCriacao) }}</h6>
+                    <h5>Consulta: {{ data.id }}</h5>
+                    <h6>Data de emissão: {{ formatDate(data.dataCriacao) }}</h6>
                 </div>
                 <br/>
                 <div class="card-body" role="user-card" >
                     <div style="display: grid;">
-                        <span>Paciente: {{user.paciente.nome || "--"}}</span>
-                        <span>Data de Nascimento: {{formatDate(user.paciente.dataNascimento)|| "--"}}</span>
+                        <span>Paciente: {{data.paciente.nome || "--"}}</span>
+                        <span>Data de Nascimento: {{formatDate(data.paciente.dataNascimento)|| "--"}}</span>
                     </div>
                     <br/>
-                    <span>Médico Responsável: {{user?.medico.nome || "--"}}</span>
+                    <span>Médico Responsável: {{data.medico.nome || "--"}}</span>
                 </div>
            </div>
+        </div>
+        <div v-if="list_data.length > 0">
+            <Pagination 
+                :current-page="currentPage" 
+                :total-items="total" 
+                :per-page="perPage" 
+                @change="pageChange"
+            />
         </div>
     </div>
 </template>
 
 <script>
-    import { api } from '../services/ScheduleService';
     import { reactive } from 'vue';
-
+    import { api } from '../services/ScheduleService';
+    import NoResult from '../components/NoResult.vue';
+import Pagination from '../components/Pagination.vue';
+    
     export default{
         name: 'Schedule-list',
         data(){
@@ -50,10 +68,17 @@
                 list_data: [],
                 isLoading: false,
                 error: null,
+                currentPage: 1,
+                perPage: 3,
+                total: 8,
                 formData: reactive({
-                    search: ''
+                    search: '',
                 }),
             }
+        },
+        components: {
+            NoResult,
+            Pagination
         },
         methods:{
             async getData(){
@@ -62,16 +87,19 @@
                 this.user = null;
         
                 try {
-                    const data = await api.getData(this.formData.search)
-                    this.list_data = data?.data;
-                    console.log('AQUI', this.list_data)
+                    const data = await api.getData(this.formData.search, this.currentPage)
+                    this.list_data = data.items;
+                    this.isLoading = false;
                 } catch (err) {
                     this.error = err
                 } finally {
                     this.isLoading = false
                 }
             },
-
+            pageChange(page) {
+                this.currentPage = page;
+                this.getData();
+            },
             formatDate(dateStr) {
                 const date = new Date(dateStr);
                 return date.toLocaleDateString("pt-BR", {
