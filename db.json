@@ -53,6 +53,24 @@
         "dataNascimento": "1987-04-10"
       },
       "dataCriacao": "2024-09-21T10:00:00Z"
+    },
+    {
+      "id": 7,
+      "medico": { "nome": "Marcela Souza" },
+      "paciente": {
+        "nome": "Daniela Macedo",
+        "dataNascimento": "1987-04-10"
+      },
+      "dataCriacao": "2024-09-21T10:00:00Z"
+    },
+    {
+      "id": 8,
+      "medico": { "nome": "Marcela Souza" },
+      "paciente": {
+        "nome": "Daniela Macedo",
+        "dataNascimento": "1987-04-10"
+      },
+      "dataCriacao": "2024-09-21T10:00:00Z"
     }
   ]
 }
