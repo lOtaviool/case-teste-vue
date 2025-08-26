@@ -1,5 +1,22 @@
-# Vue 3 + TypeScript + Vite
+# Case Teste Fin-X
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Este projeto é uma aplicação proposta pelo case teste da Fin-X e está utilizando:
+- Vue 3
+- Vite
+- Bootstrap
+- JSON Server
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+Pré-requisitos
+- Node.JS
+- Npm ou Yarn
+
+Instalação
+- git clone https://github.com/seu-usuario/case-teste-vue.git
+- cd case-teste-vue
+- npm install ou yarn install
+
+Rodar o Front-end (Vue 3)
+- npm run dev ou yarn dev
+
+Rodar o Servidor (JSON Server)
+- npm run mock:server ou yarn mock:server

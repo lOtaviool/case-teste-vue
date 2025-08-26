@@ -28,7 +28,8 @@ server.use((req, res, next) => {
   const start = (page - 1) * limit;
   const end = page * limit;
 
-  res.setHeader("X-Total-Count", data.length);
+  res.setHeader("Access-Control-Expose-Headers", "X-Total-Count");
+  res.setHeader("X-Total-Count", data.length.toString());
   res.jsonp(data.slice(start, end));
 });
 

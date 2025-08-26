@@ -1,5 +1,6 @@
 <template>
     <div class="wreaper">
+
         <div class="header">
             <div>
                 <h1>Agendamentos</h1>
@@ -19,14 +20,18 @@
                 </div>
             </form>
         </div>
+
         <div class="text-center" v-if="list_data.length <= 0 && !isLoading">
             <br/>
             <NoResult></NoResult>
         </div>
+
         <div class="text-center" v-if="list_data.length <= 0 && isLoading">
             <br/>
             <div class="spinner-grow secondary" role="status"></div>
-        </div>
+        </div> 
+
+        <!-- Estrutura de Listagem -->
         <div class="card-container" v-for="data in this.list_data" :key="data.id">
            <div>
                 <div class="card-header">
@@ -44,6 +49,7 @@
                 </div>
            </div>
         </div>
+
         <div v-if="list_data.length > 0">
             <Pagination 
                 :current-page="currentPage" 
@@ -59,10 +65,10 @@
     import { reactive } from 'vue';
     import { api } from '../services/ScheduleService';
     import NoResult from '../components/NoResult.vue';
-import Pagination from '../components/Pagination.vue';
+    import Pagination from '../components/Pagination.vue';
     
     export default{
-        name: 'Schedule-list',
+        name: 'ScheduleList',
         data(){
             return {
                 list_data: [],
@@ -70,7 +76,7 @@ import Pagination from '../components/Pagination.vue';
                 error: null,
                 currentPage: 1,
                 perPage: 3,
-                total: 8,
+                total: 0,
                 formData: reactive({
                     search: '',
                 }),
@@ -81,7 +87,8 @@ import Pagination from '../components/Pagination.vue';
             Pagination
         },
         methods:{
-            async getData(){
+
+            async getData(){ 
                 this.list_data = []
                 this.isLoading = true;
                 this.user = null;
@@ -89,6 +96,7 @@ import Pagination from '../components/Pagination.vue';
                 try {
                     const data = await api.getData(this.formData.search, this.currentPage)
                     this.list_data = data.items;
+                    this.total = data.total;
                     this.isLoading = false;
                 } catch (err) {
                     this.error = err
@@ -96,10 +104,12 @@ import Pagination from '../components/Pagination.vue';
                     this.isLoading = false
                 }
             },
+
             pageChange(page) {
                 this.currentPage = page;
                 this.getData();
             },
+
             formatDate(dateStr) {
                 const date = new Date(dateStr);
                 return date.toLocaleDateString("pt-BR", {

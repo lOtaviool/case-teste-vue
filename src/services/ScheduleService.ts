@@ -13,7 +13,8 @@ async function getData(search: string, page: string){
         });
 
         const items = response.data;
-        const total = parseInt(response.headers['x-total-count']);
+        const totalHeader = response.headers['x-total-count'];
+        const total = parseInt(Array.isArray(totalHeader) ? totalHeader[0] : totalHeader, 10) || 0;
 
         return { items, total };
     } catch (error) {
