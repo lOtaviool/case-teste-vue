@@ -2,6 +2,7 @@
 
 Este projeto é uma aplicação proposta pelo case teste da Fin-X e está utilizando:
 - Vue 3
+- TypeScript
 - Vite
 - Bootstrap
 - JSON Server
