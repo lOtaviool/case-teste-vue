@@ -2,9 +2,7 @@
 
 ## Sobre o projeto
 
-Este projeto foi desenvolvido como parte do processo técnico da Fin-X.
-
-A aplicação consiste em um front-end desenvolvido com Vue 3 utilizando TypeScript e Vite, consumindo uma API simulada através do JSON Server para gerenciamento dos dados durante o desenvolvimento.
+Esta aplicação consiste em um front-end desenvolvido com Vue 3 utilizando TypeScript e Vite, consumindo uma API simulada através do JSON Server para gerenciamento dos dados durante o desenvolvimento.
 
 ## Tecnologias utilizadas
 
