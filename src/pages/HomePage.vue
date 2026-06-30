@@ -1,7 +1,7 @@
 <template>
     <div class="home-layout">
         <div>
-            <img width="400px" alt="logo" src="https://domo.vc/wp-content/uploads/2023/09/fin-x.png">
+            <img width="300px" alt="logo" src="/public/logo.png" />
         </div>
         <div style="width: 600px;">
             <h1>

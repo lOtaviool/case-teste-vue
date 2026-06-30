@@ -34,7 +34,7 @@
         props: {
             currentPage: { type: Number, required: true },
             totalItems: { type: Number, required: true },
-            perPage: { type: Number, default: 3 }
+            perPage: { type: Number, default: 20 }
         },
         computed: {
             totalPages() {

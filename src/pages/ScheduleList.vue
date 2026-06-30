@@ -50,7 +50,7 @@
            </div>
         </div>
 
-        <div v-if="list_data.length > 0">
+        <div v-if="list_data.length > 20">
             <Pagination 
                 :current-page="currentPage" 
                 :total-items="total" 

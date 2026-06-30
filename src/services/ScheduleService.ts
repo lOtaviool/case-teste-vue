@@ -8,7 +8,7 @@ async function getData(search: string, page: string){
         params: {
             search, 
             _page: page, 
-            _limit: 3
+            _limit: 20
         }
         });
 

@@ -1,10 +1,10 @@
 <template>
     <div class="head">
         <div class="logo">
-            <img width="140px" alt="logo" src="https://domo.vc/wp-content/uploads/2023/09/fin-x.png">
+            <img width="60px" alt="logo" src="/public/logo.png"/>
         </div>
         <div style="display: flex; gap: 20px; margin-right: 100px;">
-            <router-link class="nav-item" to="/">Home</router-link>
+            <router-link class="nav-item" to="/">Início</router-link>
             <router-link class="nav-item" to="/schedule-list">Agendamentos</router-link>
         </div>
   </div>
